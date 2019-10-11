@@ -60,7 +60,8 @@ config :ddd_counter, DddCounterWeb.Endpoint,
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/ddd_counter_web/{live,views}/.*(ex)$",
+      #  ~r"lib/ddd_counter_web/{live,views}/.*(ex)$",
+      ~r{lib/live_view_counter_web/live/.*(ex)$},
       ~r"lib/ddd_counter_web/templates/.*(eex)$"
     ]
   ]

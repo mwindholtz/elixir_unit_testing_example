@@ -42,6 +42,8 @@ defmodule DddCounterWeb do
       import DddCounterWeb.ErrorHelpers
       import DddCounterWeb.Gettext
       alias DddCounterWeb.Router.Helpers, as: Routes
+
+      import Phoenix.LiveView, only: [live_render: 2, live_render: 3]
     end
   end
 
@@ -50,6 +52,7 @@ defmodule DddCounterWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 

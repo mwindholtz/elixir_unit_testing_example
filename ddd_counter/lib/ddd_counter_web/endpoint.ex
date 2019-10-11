@@ -1,6 +1,8 @@
 defmodule DddCounterWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :ddd_counter
 
+  socket "/live", Phoenix.LiveView.Socket
+
   socket "/socket", DddCounterWeb.UserSocket,
     websocket: true,
     longpoll: false

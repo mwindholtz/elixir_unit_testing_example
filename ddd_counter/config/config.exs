@@ -15,7 +15,10 @@ config :ddd_counter, DddCounterWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "0oVQojVESTD/wjQ8VLP4cRkfOF+IPpAEkgtz6zCi3553yiV6DbF7yO86K8AUEuur",
   render_errors: [view: DddCounterWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: DddCounter.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: DddCounter.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [
+    signing_salt: "7pNP9inHaIUD1Xdr6NMgpPBZkVIfA4jN"
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -24,6 +27,7 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+config :phoenix, template_engines: [leex: Phoenix.LiveView.Engine]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
