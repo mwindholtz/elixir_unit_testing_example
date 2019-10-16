@@ -1,5 +1,6 @@
 defmodule LiveViewCounterWeb.CounterLive do
   use Phoenix.LiveView
+  alias DddCounter.Command
 
   def mount(_session, socket) do
     {:ok, assign(socket, :val, 0)}
