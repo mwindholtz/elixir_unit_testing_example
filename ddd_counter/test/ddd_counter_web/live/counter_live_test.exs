@@ -6,7 +6,7 @@ defmodule LiveViewCounterWeb.CounterLiveTest do
 
   test "GET /", %{conn: conn} do
     socket = LiveView.assign(%Socket{}, :val, 0)
-    result = CounterLive.handle_event("inc", %{}, socket)
+    {:noreply, result} = CounterLive.handle_event("inc", %{}, socket)
     assert result == 1
   end
 end
