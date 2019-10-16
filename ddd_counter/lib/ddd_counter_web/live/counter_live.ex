@@ -19,6 +19,7 @@ defmodule LiveViewCounterWeb.CounterLive do
   def handle_event("inc", _, socket) do
     IO.inspect(socket, label: "inc")
     updated_val = Command.inc(socket.assigns.val)
+    IO.inspect(updated_val, label: "updated_val")
     {:noreply, update(socket, :val, updated_val)}
   end
 
