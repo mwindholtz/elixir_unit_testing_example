@@ -43,6 +43,7 @@ defmodule DddCounter.MixProject do
       {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
+      {:limbo, "~> 0.1.4"},
       {:plug_cowboy, "~> 2.0"}
     ]
   end
