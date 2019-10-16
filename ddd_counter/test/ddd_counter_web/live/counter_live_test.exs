@@ -3,5 +3,7 @@ defmodule LiveViewCounterWeb.CounterLiveTest do
   alias LiveViewCounterWeb.CounterLive
   # 
   test "GET /", %{conn: conn} do
+    result = CounterLive.inc(3)
+    assert result == 4
   end
 end
