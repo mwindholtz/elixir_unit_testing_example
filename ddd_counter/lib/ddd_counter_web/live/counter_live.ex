@@ -27,6 +27,8 @@ defmodule LiveViewCounterWeb.CounterLive do
   end
 
   def handle_event(event, _, socket) do
+    IO.inspect(socket, label: "UNEXPECTED")
+
     {:noreply, socket}
   end
 end
