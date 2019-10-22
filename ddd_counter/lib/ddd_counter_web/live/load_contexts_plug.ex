@@ -6,7 +6,7 @@ defmodule DddCounterWeb.LoadContextsPlug do
 
   def call(conn, _opts) do
     conn
-    |> load_context(:compand, DddCounter.Command)
+    |> load_context(:command, DddCounter.Command)
   end
 
   # rename to: assign_new(socket, key, func)

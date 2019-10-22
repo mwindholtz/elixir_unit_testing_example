@@ -24,6 +24,8 @@ defmodule DddCounterWeb do
       import Plug.Conn
       import DddCounterWeb.Gettext
       alias DddCounterWeb.Router.Helpers, as: Routes
+
+      def command(conn), do: conn.assigns.command
     end
   end
 

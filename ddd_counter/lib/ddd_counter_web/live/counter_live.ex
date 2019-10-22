@@ -3,7 +3,12 @@ defmodule LiveViewCounterWeb.CounterLive do
   alias DddCounter.Command
 
   def mount(_session, socket) do
-    {:ok, assign(socket, :val, 0)}
+    socket =
+      socket
+      |> assign(:val, 0)
+      |> assign(:command, Command)
+
+    {:ok, socket}
   end
 
   def render(assigns) do
@@ -17,7 +22,7 @@ defmodule LiveViewCounterWeb.CounterLive do
   end
 
   def handle_event("inc", _, socket) do
-    updated_val = Command.inc(socket.assigns.val)
+    updated_val = command(socket).inc(socket.assigns.val)
     {:noreply, assign(socket, :val, updated_val)}
   end
 
@@ -30,4 +35,6 @@ defmodule LiveViewCounterWeb.CounterLive do
 
     {:noreply, socket}
   end
+
+  def command(conn), do: conn.assigns.command
 end

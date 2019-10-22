@@ -4,9 +4,14 @@ defmodule LiveViewCounterWeb.CounterLiveTest do
   alias Phoenix.LiveView
   alias Phoenix.LiveView.Socket
 
+  def socket do
+    %Socket{}
+    |> LiveView.assign(:val, 0)
+    |> LiveView.assign(:command, DddCounter.Command)
+  end
+
   test "CounterLive.handle_event(inc ..." do
-    socket = LiveView.assign(%Socket{}, :val, 0)
-    {:noreply, mod_socket} = CounterLive.handle_event("inc", %{}, socket)
+    {:noreply, mod_socket} = CounterLive.handle_event("inc", %{}, socket())
     assert mod_socket.assigns.val == 1
   end
 end
