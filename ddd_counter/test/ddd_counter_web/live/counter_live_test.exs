@@ -9,6 +9,11 @@ defmodule LiveViewCounterWeb.CounterLiveTest do
       send(self(), {:inc, val})
       1
     end
+
+    def dec(val) do
+      send(self(), {:dec, val})
+      -1
+    end
   end
 
   def socket_with_stub do
@@ -21,5 +26,11 @@ defmodule LiveViewCounterWeb.CounterLiveTest do
     {:noreply, mod_socket} = CounterLive.handle_event("inc", %{}, socket_with_stub())
     assert mod_socket.assigns.val == 1
     assert_receive {:inc, 0}
+  end
+
+  test "CounterLive.handle_event(dec ..." do
+    {:noreply, mod_socket} = CounterLive.handle_event("dec", %{}, socket_with_stub())
+    assert mod_socket.assigns.val == -1
+    assert_receive {:dec, 0}
   end
 end

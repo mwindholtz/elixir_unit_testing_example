@@ -27,7 +27,8 @@ defmodule LiveViewCounterWeb.CounterLive do
   end
 
   def handle_event("dec", _, socket) do
-    {:noreply, update(socket, :val, &(&1 - 1))}
+    updated_val = command(socket).dec(socket.assigns.val)
+    {:noreply, assign(socket, :val, updated_val)}
   end
 
   def handle_event(_event, _, socket) do
