@@ -1,10 +1,11 @@
-defmodule DddCounter.Gateway do
-  def inc(val) do
-    val + 1
+defmodule DddCounter.MutationGateway do
+  alias DddCounter.MutationAdapter, as: Adapter
+
+  def inc(val, adapter \\ Adapter) do
+    adapter.inc(val)
   end
 
-  def dec(val) do
-    # call a service
-    val - 1
+  def dec(val, adapter \\ Adapter) do
+    adapter.dec(val)
   end
 end
