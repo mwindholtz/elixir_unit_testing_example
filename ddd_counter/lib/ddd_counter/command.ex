@@ -1,9 +1,9 @@
 defmodule DddCounter.Command do
   def inc(val) do
-    val + 1
+    DddCounter.Gateway.inc(val)
   end
 
   def dec(val) do
-    val - 1
+    DddCounter.Gateway.dec(val)
   end
 end
