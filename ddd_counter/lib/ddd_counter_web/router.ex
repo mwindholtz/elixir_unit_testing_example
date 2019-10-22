@@ -8,6 +8,7 @@ defmodule DddCounterWeb.Router do
     plug Phoenix.LiveView.Flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug DddCounterWeb.LoadContextsPlug
     plug :put_layout, {DddCounterWeb.LayoutView, :app}
   end
 
